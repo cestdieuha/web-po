@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-season="summer">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artwork — Ha Nguyen Portfolio</title>
+<link rel="icon" type="image/png" href="honeybear.png">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="artwork">
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="index.html" aria-label="Go to home">
+      <img src="honeybear-logo.png" alt="logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" id="nav-about">About</a></li>
+      <li><a href="projects.html" id="nav-projects">Projects</a></li>
+      <li><a href="artwork.html" id="nav-artwork" class="active">Artwork</a></li>
+      <li><a href="travel.html" id="nav-travel">Travel</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="season-picker">
+    <span>choose your season</span>
+    <button id="season-cycle" type="button" aria-label="Choose your season. Current season: Summer Dreams. Click to change season.">
+      <span id="season-name">Summer Dreams</span>
+    </button>
+  </div>
+</nav>
+<section id="artwork" class="page active">
+  <div class="page-wrapper">
+    <div class="page-header fade-in">
+      <span class="page-header-label">✦ &nbsp; Art &nbsp; ✦</span>
+      <h1 class="page-title">My <span>Gallery</span></h1>
+      <div class="title-underline"><div class="bar"></div><div class="diamond"></div><div class="bar"></div></div>
+    </div>
+    <p class="artwork-intro fade-in">A collection of things I’ve made</p>
+    <div class="artwork-carousel-stage fade-in fade-in-d2">
+      <div class="artwork-carousel-perspective" id="artwork-carousel" role="region" aria-label="Interactive 3D artwork carousel" tabindex="0">
+        <div class="artwork-gallery" id="artwork-ring">
+      <div class="artwork-item tall">
+        <div class="artwork-placeholder p1 artwork-placeholder-tall">
+          <img class="artwork-photo" src="arts/1.JPEG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/2.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/16.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/6.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/9.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/10.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/11.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/12.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/15.PNG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/18.PNG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/20.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/4.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/5.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/7.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/8.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/19.JPG" alt="Artwork">
+        </div>
+      </div>
+      <div class="artwork-item">
+        <div class="artwork-placeholder p2">
+          <img class="artwork-photo" src="arts/17.PNG" alt="Artwork">
+        </div>
+      </div>
+        </div>
+      </div>
+      <div class="artwork-carousel-arrows">
+        <button type="button" aria-label="Previous artwork" onclick="rotateArtworkGallery(-1)">←</button>
+        <button type="button" aria-label="Next artwork" onclick="rotateArtworkGallery(1)">→</button>
+      </div>
+      <div class="artwork-carousel-dots" id="artwork-dots" role="group" aria-label="Choose an artwork"></div>
+    </div>
+    <div class="artwork-lightbox" id="artwork-lightbox" role="dialog" aria-modal="true" aria-label="Full size artwork" aria-hidden="true">
+      <button type="button" class="artwork-lightbox-close" aria-label="Close full size artwork" onclick="closeArtworkLightbox()">×</button>
+      <img class="artwork-lightbox-image" id="artwork-lightbox-image" alt="">
+    </div>
+    <div class="section-divider section-divider-spaced"></div>
+    <div class="viet-strip" aria-hidden="true"></div>
+  </div>
+  <footer>© 2026 Hannia Nguyen ❤︎⁠ All rights reserved.</footer>
+</section>
+<script src="site.js" defer></script>
+</body>
+</html>

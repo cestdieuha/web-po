@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-season="summer">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Ha Nguyen Portfolio</title>
+<link rel="icon" type="image/png" href="honeybear.png">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="about">
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="index.html" aria-label="Go to home">
+      <img src="honeybear-logo.png" alt="logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" id="nav-about" class="active">About</a></li>
+      <li><a href="projects.html" id="nav-projects">Projects</a></li>
+      <li><a href="artwork.html" id="nav-artwork">Artwork</a></li>
+      <li><a href="travel.html" id="nav-travel">Travel</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="season-picker">
+    <span>choose your season</span>
+    <button id="season-cycle" type="button" aria-label="Choose your season. Current season: Summer Dreams. Click to change season.">
+      <span id="season-name">Summer Dreams</span>
+    </button>
+  </div>
+</nav>
+<section id="about" class="page active">
+  <div class="page-wrapper">
+    <div class="page-header fade-in">
+      <h1 class="page-title">Hi, I'm <span>Ha</span>!</h1>
+      <div class="title-underline"><div class="bar"></div><div class="diamond"></div><div class="bar"></div></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-portrait-wrap fade-in fade-in-d1">
+        <div class="about-portrait-inner">
+          <img class="profile-photo" src="about%20me/summer%20profile.png" alt="Ha Nguyen portrait">
+        </div>
+        <div class="portrait-side-deco">
+        </div>
+      </div>
+      <div class="about-text fade-in fade-in-d2">
+        <p>You can also call me Hannia ₍ᐢ•ﻌ•ᐢ₎ෆෆ </p>
+        <p>I’m studying Operations &amp; Information Management and Informatics at UMass Amherst. I build tools and analysis that help people make better decisions.</p>
+        <p>Give me ideas, data, or even colors, and I’ll turn them into something worth sharing. I believe good work comes from noticing the small details while keeping the bigger picture in view.</p>
+        <p>I take ownership of what I create, stay curious about what I can improve, and enjoy learning something new everyday.</p>
+        <p>I’m always looking to connect with people and explore projects where I can keep building, learning, and making an impact. Let’s chat!</p>
+        <p class="project-link"><a href="projects.html">Check out my professional projects →</a></p>
+      </div>
+    </div>
+    <section class="about-skills-section" aria-labelledby="about-skills-heading">
+      <div class="skills-section-heading">
+        <span class="page-header-label">✦ &nbsp; A LITTLE TOOLKIT &nbsp; ✦</span>
+        <h2 id="about-skills-heading" class="page-title">Skills &amp; <span>Certificates</span></h2>
+      </div>
+      <div class="skills-card-grid">
+        <button class="skill-flip-card skill-card-certifications" type="button" aria-pressed="false" aria-label="Certifications card. Click to flip." onclick="flipSkillCard(this)">
+          <span class="skill-flip-inner">
+            <span class="skill-card-face skill-card-front">
+              <span class="skill-card-number">01</span>
+              <strong>Certifications</strong>
+            </span>
+            <span class="skill-card-face skill-card-back" aria-hidden="true">
+              <strong>Certifications</strong>
+              <span class="skill-card-items">
+                <span>Isenberg’s Excel Advanced User Badge</span>
+                <span>DataCamp: Analyzing Business Data in SQL</span>
+                <span>Forage: Markets Quantitative Analysis (MQA) Job Simulation</span>
+                <span>Forage: GenAI Powered Data Analytics Job Simulation</span>
+              </span>
+              <span class="skill-flip-hint"><span aria-hidden="true">↻</span></span>
+            </span>
+          </span>
+        </button>
+        <button class="skill-flip-card skill-card-programming" type="button" aria-pressed="false" aria-label="Programming and Databases card. Click to flip." onclick="flipSkillCard(this)">
+          <span class="skill-flip-inner">
+            <span class="skill-card-face skill-card-front">
+              <span class="skill-card-number">02</span>
+              <strong>Programming &amp; Databases</strong>
+            </span>
+            <span class="skill-card-face skill-card-back" aria-hidden="true">
+              <strong>Programming &amp; Databases</strong>
+              <span class="skill-card-items">
+                <span>Python</span><span>R</span><span>JavaScript</span><span>HTML/CSS</span><span>SQL</span><span>Oracle</span>
+              </span>
+              <span class="skill-flip-hint"><span aria-hidden="true">↻</span></span>
+            </span>
+          </span>
+        </button>
+        <button class="skill-flip-card skill-card-analytics" type="button" aria-pressed="false" aria-label="Analytics and Visualization card. Click to flip." onclick="flipSkillCard(this)">
+          <span class="skill-flip-inner">
+            <span class="skill-card-face skill-card-front">
+              <span class="skill-card-number">03</span>
+              <strong>Analytics &amp; Visualization</strong>
+            </span>
+            <span class="skill-card-face skill-card-back" aria-hidden="true">
+              <strong>Analytics &amp; Visualization</strong>
+              <span class="skill-card-items">
+                <span>Tableau</span><span>Alteryx</span><span>XLMiner</span><span>Google Colab</span><span>Figma</span>
+              </span>
+              <span class="skill-flip-hint">Click to turn back <span aria-hidden="true">↻</span></span>
+            </span>
+          </span>
+        </button>
+        <button class="skill-flip-card skill-card-enterprise" type="button" aria-pressed="false" aria-label="Enterprise Systems card. Click to flip." onclick="flipSkillCard(this)">
+          <span class="skill-flip-inner">
+            <span class="skill-card-face skill-card-front">
+              <span class="skill-card-number">04</span>
+              <strong>Enterprise Systems</strong>
+            </span>
+            <span class="skill-card-face skill-card-back" aria-hidden="true">
+              <strong>Enterprise Systems</strong>
+              <span class="skill-card-items">
+                <span>SAP S/4HANA</span><span>SAP ERP</span><span>Salesforce</span>
+              </span>
+              <span class="skill-flip-hint"><span aria-hidden="true">↻</span></span>
+            </span>
+          </span>
+        </button>
+        <button class="skill-flip-card skill-card-microsoft" type="button" aria-pressed="false" aria-label="Microsoft card. Click to flip." onclick="flipSkillCard(this)">
+          <span class="skill-flip-inner">
+            <span class="skill-card-face skill-card-front">
+              <span class="skill-card-number">05</span>
+              <strong>Microsoft</strong>
+            </span>
+            <span class="skill-card-face skill-card-back" aria-hidden="true">
+              <strong>Microsoft</strong>
+              <span class="skill-card-items">
+                <span>Excel</span><span>PowerPoint</span><span>Power Automate</span><span>Power BI</span><span>Project</span>
+              </span>
+              <span class="skill-flip-hint"><span aria-hidden="true">↻</span></span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </section>
+    <section class="soul-tune-section" aria-labelledby="soul-tune-heading">
+      <div class="skills-section-heading">
+        <span class="page-header-label">✦ &nbsp; MY SOUNDTRACK &nbsp; ✦</span>
+        <h2 id="soul-tune-heading" class="page-title">Tune into my <span>soul</span></h2>
+      </div>
+      <div class="soul-tune-grid">
+        <article class="soul-tune-card soul-video-card">
+          <video autoplay loop muted playsinline preload="auto" aria-label="My current favorites video">
+            <source src="about%20me/my%20current%20favs.mp4" type="video/mp4">
+            Your browser does not support MP4 video.
+          </video>
+        </article>
+        <article class="soul-tune-card soul-playlist-card">
+          <div class="soul-tune-card-heading"><span>MY SPOTIFY PLAYLIST</span><span aria-hidden="true">♫</span></div>
+          <iframe class="soul-playlist-embed"
+            title="Spotify playlist"
+            src="https://open.spotify.com/embed/playlist/30vWlh5kNr3p34KUDJkauX?utm_source=generator&theme=0"
+            width="100%" height="352" frameborder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </article>
+      </div>
+    </section>
+    <div class="viet-strip" aria-hidden="false"></div>
+  </div>
+  <footer>© 2026 Hannia Nguyen ❤︎⁠ All rights reserved.</footer>
+</section>
+<script src="site.js" defer></script>
+</body>
+</html>

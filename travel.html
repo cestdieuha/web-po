@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-season="summer">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel — Ha Nguyen Portfolio</title>
+<link rel="icon" type="image/png" href="honeybear.png">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="travel">
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="index.html" aria-label="Go to home">
+      <img src="honeybear-logo.png" alt="logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" id="nav-about">About</a></li>
+      <li><a href="projects.html" id="nav-projects">Projects</a></li>
+      <li><a href="artwork.html" id="nav-artwork">Artwork</a></li>
+      <li><a href="travel.html" id="nav-travel" class="active">Travel</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="season-picker">
+    <span>choose your season</span>
+    <button id="season-cycle" type="button" aria-label="Choose your season. Current season: Summer Dreams. Click to change season.">
+      <span id="season-name">Summer Dreams</span>
+    </button>
+  </div>
+</nav>
+<section id="travel" class="page active">
+  <div class="page-wrapper travel-wrapper">
+    <div class="page-header fade-in">
+      <span class="page-header-label">✦ &nbsp; Postcards &amp; Pin Drops &nbsp; ✦</span>
+      <h1 class="page-title">Travel <span>Diary</span></h1>
+      <div class="title-underline"><div class="bar"></div><div class="diamond"></div><div class="bar"></div></div>
+      <p class="travel-intro">A scrapbook of places and memories made along the way.</p>
+    </div>
+
+    <section class="travel-map-card" aria-labelledby="travel-map-heading">
+      <div class="travel-card-heading">
+        <div><span class="travel-kicker">✿ THE ROUTE SO FAR</span><h2 id="travel-map-heading">A map of my wanderings</h2></div>
+        <label class="travel-filter" for="travel-year-filter">Explore by year
+          <select id="travel-year-filter" aria-label="Filter map by year">
+            <option value="all">All years</option>
+          </select>
+        </label>
+      </div>
+      <div id="travel-map" role="region" aria-label="Interactive geographic map showing visited cities and travel routes"></div>
+      <div class="travel-map-footer">
+        <p id="travel-map-status" role="status">Connecting to the travel diary…</p>
+        <div id="travel-memory-actions" class="travel-memory-actions" aria-live="polite"></div>
+        <div id="travel-legend" class="travel-legend" aria-label="Map route colors"></div>
+        <p class="travel-map-attribution">City coordinates © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a></p>
+      </div>
+    </section>
+
+    <section class="travel-summary" aria-labelledby="travel-summary-heading">
+      <div class="travel-section-heading">
+        <span class="travel-kicker">✿ THE LITTLE NUMBERS</span>
+        <h2 id="travel-summary-heading">Data summary</h2>
+      </div>
+      <div class="travel-stat-grid">
+        <article class="travel-stat"><span class="travel-stat-icon">⌖</span><strong id="travel-cities">—</strong><span>Cities explored</span></article>
+        <article class="travel-stat"><span class="travel-stat-icon">♡</span><strong id="travel-countries">—</strong><span>Countries &amp; regions</span></article>
+        <article class="travel-stat"><span class="travel-stat-icon">⛰︎</span><strong id="travel-continents">—</strong><span>Continents</span></article>
+        <article class="travel-stat"><span class="travel-stat-icon">❀</span><strong id="travel-busiest">—</strong><span>Busiest year</span></article>
+        <article class="travel-stat"><span class="travel-stat-icon">➷</span><strong id="travel-country">—</strong><span>Most explored</span></article>
+        <article class="travel-stat"><span class="travel-stat-icon">✈︎</span><strong id="travel-countries-world">—</strong><span>Countries visited</span></article>
+      </div>
+      <div class="travel-insight" id="travel-insight">Loading the story behind the numbers…</div>
+    </section>
+
+    <section class="travel-chart-card" aria-labelledby="travel-chart-heading">
+      <div class="travel-section-heading">
+        <span class="travel-kicker">✿ THEN &amp; NOW</span>
+        <h2 id="travel-chart-heading">Cities by year</h2>
+        <p>Each little bar counts the places added to the diary that year.</p>
+      </div>
+      <div id="travel-year-chart" class="travel-year-chart" role="img" aria-label="Bar chart of visited cities by year"></div>
+    </section>
+    <div class="travel-source-note">Travel diary · <span id="travel-updated">waiting for data source</span> · <button id="travel-refresh" type="button">Refresh</button></div>
+    <div class="section-divider section-divider-spaced"></div>
+    <div class="viet-strip" aria-hidden="true"></div>
+  </div>
+  <footer>© 2026 Hannia Nguyen ❤︎⁠ All rights reserved.</footer>
+</section>
+<script src="site.js" defer></script>
+</body>
+</html>

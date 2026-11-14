@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-season="summer">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Ha Nguyen Portfolio</title>
+<link rel="icon" type="image/png" href="honeybear.png">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="index.html" aria-label="Go to home">
+      <img src="honeybear-logo.png" alt="logo">
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" id="nav-about">About</a></li>
+      <li><a href="projects.html" id="nav-projects">Projects</a></li>
+      <li><a href="artwork.html" id="nav-artwork">Artwork</a></li>
+      <li><a href="travel.html" id="nav-travel">Travel</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="season-picker">
+    <span>choose your season</span>
+    <button id="season-cycle" type="button" aria-label="Choose your season. Current season: Summer Dreams. Click to change season.">
+      <span id="season-name">Summer Dreams</span>
+    </button>
+  </div>
+</nav>
+<section id="home" class="page active">
+  <img class="home-logo fade-in" src="honeybear.png" alt="Honeybear logo">
+  <h1 class="home-name fade-in fade-in-d2"> <span>Ha Nguyen</span></h1>
+  <p class="home-eyebrow fade-in fade-in-d1">✦ Portfolio ✦</p>
+  <div class="home-ornament fade-in fade-in-d3">
+  </div>
+  <div class="nav-btn-group fade-in fade-in-d4">
+    <button class="nav-btn nav-btn-primary" onclick="showPage('projects')">View My Work</button>
+    <button class="nav-btn nav-btn-secondary" onclick="showPage('contact')">Get in Touch</button>
+  </div>
+  <div class="viet-strip home-viet-strip"aria-hidden="false"></div>
+</section>
+<script src="site.js" defer></script>
+</body>
+</html>
