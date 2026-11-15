@@ -743,3 +743,32 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
   if (currentPage === 'artwork') requestAnimationFrame(initializeArtworkCarousel);
   if (currentPage === 'travel') { travelStarted = true; loadTravelData(); }
 
+  const contactForm = document.querySelector('.contact-form');
+  contactForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector('[type="submit"]');
+    const message = document.getElementById('form-msg');
+    submitButton.disabled = true;
+    message.textContent = 'Sending…';
+    message.style.display = 'block';
+
+    try {
+      const fields = Object.fromEntries(new FormData(contactForm).entries());
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(fields)
+      });
+      const result = await response.json();
+      if (!response.ok || result.success === 'false' || result.success === false) {
+        throw new Error(result.message || 'The email service could not accept your message.');
+      }
+      message.textContent = 'Message submitted. Please check your inbox for an activation email if this is your first submission.';
+      contactForm.reset();
+    } catch (error) {
+      message.textContent = `${error.message || 'Could not send your message.'} Please email hannia.hanguyen@gmail.com directly.`;
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+

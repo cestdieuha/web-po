@@ -55,13 +55,14 @@
         </div>
       </div>
       <div class="fade-in fade-in-d2">
-        <form class="contact-form" action="https://formsubmit.co/hannia.hanguyen@gmail.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/ajax/hannia.hanguyen@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New message from your portfolio contact form">
           <div><label class="form-label" for="name">Your Name</label><input type="text" id="name" name="name" class="form-input" placeholder="Enter here…" autocomplete="name" required></div>
           <div><label class="form-label" for="cemail">Email Address</label><input type="email" id="cemail" name="email" class="form-input" placeholder="Enter here…" autocomplete="email" required></div>
           <div><label class="form-label" for="subject">Subject</label><input type="text" id="subject" name="subject" class="form-input" placeholder="Enter here…" required></div>
           <div><label class="form-label" for="message">Message</label><textarea id="message" name="message" class="form-textarea" placeholder="Enter here…" required></textarea></div>
           <button type="submit" class="form-submit">✦ Send Message ✦</button>
+          <p id="form-msg" class="form-message" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
