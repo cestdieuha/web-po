@@ -743,10 +743,3 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
   if (currentPage === 'artwork') requestAnimationFrame(initializeArtworkCarousel);
   if (currentPage === 'travel') { travelStarted = true; loadTravelData(); }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const msg = document.getElementById('form-msg');
-    msg.style.display = 'block';
-    e.target.querySelectorAll('input, textarea').forEach(el => el.value = '');
-    setTimeout(() => msg.style.display = 'none', 5000);
-  }
