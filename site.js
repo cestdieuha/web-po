@@ -763,7 +763,7 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
       if (!response.ok || result.success === 'false' || result.success === false) {
         throw new Error(result.message || 'The email service could not accept your message.');
       }
-      message.textContent = 'Message submitted. Please check your inbox for an activation email if this is your first submission.';
+      message.textContent = "Thank you for writing! I'll be in touch soon. If you don't hear back within two days, please send me another message. ^^";
       contactForm.reset();
     } catch (error) {
       message.textContent = `${error.message || 'Could not send your message.'} Please email hannia.hanguyen@gmail.com directly.`;
