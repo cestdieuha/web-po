@@ -529,6 +529,9 @@
     border: 1px solid var(--border-a); border-radius: 20px;
     background: var(--bg-card); box-shadow: inset 0 0 0 5px var(--strip-bg);
     backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    /* Separate each face into its own 3D layer; mobile Safari can otherwise
+       paint the front text through the rotated back face. */
+    transform-style: preserve-3d; isolation: isolate;
   }
   .skill-card-face::before, .skill-card-face::after {
     content: ""; position: absolute; z-index: 0; pointer-events: none;
@@ -536,7 +539,7 @@
   }
   .skill-card-face::before { width: 92px; height: 92px; right: -34px; top: 24px; }
   .skill-card-face::after { width: 54px; height: 54px; right: 16px; top: 88px; opacity: 0.7; }
-  .skill-card-front { justify-content: flex-end; }
+  .skill-card-front { justify-content: flex-end; transform: rotateY(0deg) translateZ(1px); }
   .skill-card-number, .skill-card-doodle, .skill-card-front strong,
   .skill-card-subtitle, .skill-card-back strong, .skill-card-items, .skill-flip-hint { position: relative; z-index: 1; }
   .skill-card-number {
@@ -561,7 +564,7 @@
   }
   .skill-flip-hint > span { font-size: 1rem; }
   .skill-flip-card:hover .skill-flip-hint { letter-spacing: 0.12em; }
-  .skill-card-back { transform: rotateY(180deg); padding-top: 1.25rem; }
+  .skill-card-back { transform: rotateY(180deg) translateZ(1px); padding-top: 1.25rem; }
   .skill-card-back strong { padding-right: 0.3rem; color: var(--skill-pop); }
   .skill-card-items {
     display: flex; flex-direction: column; gap: 0.45rem; width: 100%;
