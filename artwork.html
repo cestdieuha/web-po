@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Marcellus&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <title>Artwork — Ha Nguyen Portfolio</title>
 <link rel="icon" type="image/png" href="honeybear.png">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="artwork">
@@ -36,7 +36,6 @@
       <h1 class="page-title">My <span>Gallery</span></h1>
       <div class="title-underline"><div class="bar"></div><div class="diamond"></div><div class="bar"></div></div>
     </div>
-    <p class="artwork-intro fade-in">A collection of things I’ve made</p>
     <div class="artwork-carousel-stage fade-in fade-in-d2">
       <div class="artwork-carousel-perspective" id="artwork-carousel" role="region" aria-label="Interactive 3D artwork carousel" tabindex="0">
         <div class="artwork-gallery" id="artwork-ring">
@@ -133,6 +132,50 @@
       </div>
       <div class="artwork-carousel-dots" id="artwork-dots" role="group" aria-label="Choose an artwork"></div>
     </div>
+    <section class="graphic-design-section fade-in" aria-labelledby="graphic-design-title">
+      <div class="graphic-design-heading">
+        <span class="page-header-label">✦ &nbsp; Graphic Design &nbsp; ✦</span>
+        <h2 id="graphic-design-title">Design <span>Collection</span></h2>
+      </div>
+      <ul class="design-tool-bubbles" aria-label="Design tools">
+        <li>Figma</li>
+        <li>Adobe Illustrator</li>
+        <li>Adobe InDesign</li>
+        <li>Adobe Photoshop</li>
+      </ul>
+      <div class="graphic-design-grid">
+        <figure class="graphic-design-card">
+          <figcaption>Stationery design</figcaption>
+          <button class="graphic-design-image-button" type="button" aria-label="View full-size stationery design">
+            <img src="Graphic%20Designs/Stationary%20Designs.jpg" alt="Stationery design collection">
+          </button>
+        </figure>
+        <figure class="graphic-design-card">
+          <figcaption>Brand identity</figcaption>
+          <button class="graphic-design-image-button" type="button" aria-label="View full-size brand identity design">
+            <img src="Graphic%20Designs/Branding.jpg" alt="Brand identity design">
+          </button>
+        </figure>
+        <figure class="graphic-design-card">
+          <figcaption>Social media graphics</figcaption>
+          <button class="graphic-design-image-button" type="button" aria-label="View full-size social media graphics">
+            <img src="Graphic%20Designs/Others%20-%20Social%20Media%20Posts.jpg" alt="Additional social media post design">
+          </button>
+        </figure>
+        <figure class="graphic-design-card">
+          <figcaption>Social media posts</figcaption>
+          <button class="graphic-design-image-button" type="button" aria-label="View full-size social media post design">
+            <img src="Graphic%20Designs/Social%20Media%20Posts.jpg" alt="Social media post design">
+          </button>
+        </figure>
+        <figure class="graphic-design-card">
+          <figcaption>Social media campaign</figcaption>
+          <button class="graphic-design-image-button" type="button" aria-label="View full-size social media campaign design">
+            <img src="Graphic%20Designs/Social%20Media%20Posts%20(2).jpg" alt="Social media post design variation">
+          </button>
+        </figure>
+      </div>
+    </section>
     <div class="artwork-lightbox" id="artwork-lightbox" role="dialog" aria-modal="true" aria-label="Full size artwork" aria-hidden="true">
       <button type="button" class="artwork-lightbox-close" aria-label="Close full size artwork" onclick="closeArtworkLightbox()">×</button>
       <img class="artwork-lightbox-image" id="artwork-lightbox-image" alt="">

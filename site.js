@@ -1,10 +1,12 @@
 let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, artworkTransitionTimer=0;
   let artworkNoTransitionCards=new Set();
   let artworkBodyOverflow='', artworkRootOverflow='';
+  let artworkLightboxReturnFocus=null;
   function artworkLightboxKeydown(event){if(event.key==='Escape')closeArtworkLightbox();}
-  function openArtworkLightbox(image){
+  function openArtworkLightbox(image,returnFocusTarget){
     const lightbox=document.getElementById('artwork-lightbox'),fullImage=document.getElementById('artwork-lightbox-image');
     if(!lightbox||!fullImage||!image)return;
+    artworkLightboxReturnFocus=returnFocusTarget||document.activeElement;
     artworkBodyOverflow=document.body.style.overflow;
     artworkRootOverflow=document.documentElement.style.overflow;
     document.body.style.overflow='hidden';
@@ -25,7 +27,9 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
     document.body.style.overflow=artworkBodyOverflow;
     document.documentElement.style.overflow=artworkRootOverflow;
     document.removeEventListener('keydown',artworkLightboxKeydown);
-    document.querySelector('#artwork-ring .artwork-item.is-active')?.focus({preventScroll:true});
+    if(artworkLightboxReturnFocus?.isConnected)artworkLightboxReturnFocus.focus({preventScroll:true});
+    else document.querySelector('#artwork-ring .artwork-item.is-active')?.focus({preventScroll:true});
+    artworkLightboxReturnFocus=null;
   }
   function artworkElements(){
     const viewport=document.getElementById('artwork-carousel'),ring=document.getElementById('artwork-ring');
@@ -101,6 +105,10 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
       document.getElementById('artwork-lightbox').addEventListener('click',event=>{
         if(event.target===event.currentTarget)closeArtworkLightbox();
       });
+      document.querySelectorAll('#artwork .graphic-design-image-button').forEach(button=>{
+        const image=button.querySelector('img');
+        button.addEventListener('click',()=>openArtworkLightbox(image,button));
+      });
       cards.forEach((card,index)=>{
         const image=card.querySelector('img');if(image)image.alt='Original artwork '+String(index+1).padStart(2,'0');
         card.setAttribute('role','button');card.setAttribute('tabindex','0');
@@ -108,7 +116,7 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
         card.addEventListener('keydown',event=>{
           if(event.key==='Enter'||event.key===' '){
             event.preventDefault();
-            openArtworkLightbox(card.querySelector('img'));
+            openArtworkLightbox(card.querySelector('img'),card);
           }
         });
       });
@@ -145,7 +153,7 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
         if(dragged){event.preventDefault();return;}
         const hit=document.elementFromPoint(event.clientX,event.clientY);
         const card=hit?.closest('#artwork-ring .artwork-item');
-        if(card)openArtworkLightbox(card.querySelector('img'));
+        if(card)openArtworkLightbox(card.querySelector('img'),card);
       });
       viewport.addEventListener('wheel',event=>{
         event.preventDefault();wheelAmount+=event.deltaX+event.deltaY;
@@ -460,55 +468,6 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
     document.getElementById('travel-year-filter')?.addEventListener('change', renderTravelMap);
   }
 
-  function bindTravelMemoryEvents() {
-    const map = document.getElementById('travel-map');
-    const actions = document.getElementById('travel-memory-actions');
-    if (!map || !actions || map._travelMemoryEventsBound || typeof map.on !== 'function') return;
-    map._travelMemoryEventsBound = true;
-    const showMemories = event => {
-      const point = event?.points?.[0];
-      if (!point || !actions) return;
-      let matches = [];
-      if (point.data?.type === 'choropleth') {
-        const country = canonicalTravelCountry(point.location || '');
-        matches = travelRows.filter(place => canonicalTravelCountry(place.country) === country && place.memories);
-      } else {
-        const data = point.customdata || [];
-        const city = String(data[0] || '');
-        const country = String(data[1] || '');
-        matches = travelRows.filter(place => place.city === city && place.country === country && place.memories);
-      }
-      const unique = new Map();
-      matches.forEach(place => {
-        const url = safeTravelMemoryURL(place.memories);
-        if (url && !unique.has(url)) unique.set(url, place);
-      });
-      actions.replaceChildren();
-      const label = document.createElement('span');
-      const pointName = point.data?.type === 'choropleth' ? String(point.location || 'Country') : String(point.customdata?.[0] || 'Place');
-      label.textContent = unique.size ? `Memories for ${pointName}:` : `No memories linked for ${pointName} yet.`;
-      actions.append(label);
-      unique.forEach((place, url) => {
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.textContent = unique.size > 1 ? `See memories · ${place.city} ↗` : 'See memories ↗';
-        actions.append(link);
-      });
-      actions.classList.add('is-visible');
-    };
-    map.on('plotly_hover', showMemories);
-    map.on('plotly_click', showMemories);
-  }
-
-  function safeTravelMemoryURL(value) {
-    try {
-      const url = new URL(String(value || ''), window.location.href);
-      return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
-    } catch (_) { return ''; }
-  }
-
   function renderTravelMap() {
     if (!travelMapReady || !window.Plotly) return;
     const chosen = document.getElementById('travel-year-filter')?.value || 'all';
@@ -566,8 +525,7 @@ let artworkIndex=0, artworkCarouselReady=false, artworkTransitionLocked=false, a
         showcoastlines: true, coastlinecolor: '#c8d8d2', showframe: false,
         projection: { type: 'natural earth', minscale: 0.65, maxscale: 7 }
       }
-    }, { responsive: true, displayModeBar: false, scrollZoom: true, doubleClick: 'reset', topojsonURL: './vendor/plotly-topojson/' })
-      .then(bindTravelMemoryEvents);
+    }, { responsive: true, displayModeBar: false, scrollZoom: true, doubleClick: 'reset', topojsonURL: './vendor/plotly-topojson/' });
   }
 
   function loadCachedCoordinates(place) {
